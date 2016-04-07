@@ -1,6 +1,7 @@
 package ar.edu.unq.aplicacion.escritorio;
 
 import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel;
+import ar.edu.unq.acahaygatoencerrado.dominio.Accion;
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion;
 import ar.edu.unq.acahaygatoencerrado.dominio.Laberinto;
 import ar.edu.unq.aplicacion.componentes.Titulo;
@@ -45,6 +46,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
     contentPanel.setLayout(_horizontalLayout);
     this.crearAdministradorLaberintos(contentPanel);
     this.crearAdministradorHabitaciones(contentPanel);
+    this.crearAdministradorCaracteristicasYAcciones(contentPanel);
   }
   
   public Button crearAdministradorLaberintos(final Panel owner) {
@@ -60,14 +62,14 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
           PropertyAdapter _propertyAdapter = new PropertyAdapter(Laberinto.class, "nombre");
           _spaceship.setAdapter(_propertyAdapter);
           it.setHeight(270);
-          it.setWidth(210);
+          it.setWidth(185);
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
           ArenaXtendExtensions.operator_spaceship(_value, "laberintoSeleccionado");
         }
       };
       ObjectExtensions.<List<Laberinto>>operator_doubleArrow(_list, _function);
       final Panel panelDeBotonesAdministradorLaberintos = new Panel(this);
-      this.crearPanelDeBotonesHorizontal(panelDeBotonesAdministradorLaberintos);
+      this.crearPanelDeBotonesHorizontalParaAdministradorLaberintos(panelDeBotonesAdministradorLaberintos);
       Button _button = new Button(panelDeBotonesAdministradorLaberintos);
       final Procedure1<Button> _function_1 = new Procedure1<Button>() {
         public void apply(final Button it) {
@@ -79,7 +81,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
     return _xblockexpression;
   }
   
-  public Button crearPanelDeBotonesHorizontal(final Panel owner) {
+  public Button crearPanelDeBotonesHorizontalParaAdministradorLaberintos(final Panel owner) {
     Button _xblockexpression = null;
     {
       final Panel panelDeBotonesAdministradorLaberintos = new Panel(owner);
@@ -112,23 +114,92 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
       final Procedure1<List<Habitacion>> _function = new Procedure1<List<Habitacion>>() {
         public void apply(final List<Habitacion> it) {
           ObservableItems<Selector<Habitacion>, Habitacion, ListBuilder<Habitacion>> _items = it.items();
-          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "administrador.laberintos");
-          PropertyAdapter _propertyAdapter = new PropertyAdapter(Laberinto.class, "nombre");
+          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "model.habitacionesDelLaberintoSeleccionado");
+          PropertyAdapter _propertyAdapter = new PropertyAdapter(Habitacion.class, "nombre");
           _spaceship.setAdapter(_propertyAdapter);
           it.setHeight(270);
-          it.setWidth(210);
+          it.setWidth(185);
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-          ArenaXtendExtensions.operator_spaceship(_value, "laberintoSeleccionado");
+          ArenaXtendExtensions.operator_spaceship(_value, "habitacionSeleccionada");
         }
       };
       ObjectExtensions.<List<Habitacion>>operator_doubleArrow(_list, _function);
       final Panel panelDeBotonesAdministradorLaberintos = new Panel(this);
-      _xblockexpression = this.crearPanelDeBotonesHorizontal(panelDeBotonesAdministradorLaberintos);
+      _xblockexpression = this.crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(panelDeBotonesAdministradorLaberintos);
     }
     return _xblockexpression;
   }
   
-  public void crearAdministradorCaracteristicasYAcciones(final Panel panel) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public Button crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(final Panel owner) {
+    Button _xblockexpression = null;
+    {
+      final Panel panelDeBotonesAdministradorHabitaciones = new Panel(owner);
+      HorizontalLayout _horizontalLayout = new HorizontalLayout();
+      panelDeBotonesAdministradorHabitaciones.setLayout(_horizontalLayout);
+      Button _button = new Button(panelDeBotonesAdministradorHabitaciones);
+      final Procedure1<Button> _function = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Agregar Habitación");
+        }
+      };
+      ObjectExtensions.<Button>operator_doubleArrow(_button, _function);
+      Button _button_1 = new Button(panelDeBotonesAdministradorHabitaciones);
+      final Procedure1<Button> _function_1 = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Quitar Habitación");
+        }
+      };
+      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);
+    }
+    return _xblockexpression;
+  }
+  
+  public Button crearAdministradorCaracteristicasYAcciones(final Panel owner) {
+    Button _xblockexpression = null;
+    {
+      final Panel panelDeListadoDeAcciones = new Panel(owner);
+      new Titulo(panelDeListadoDeAcciones, "Acciones");
+      List<Habitacion> _list = new List<Habitacion>(panelDeListadoDeAcciones);
+      final Procedure1<List<Habitacion>> _function = new Procedure1<List<Habitacion>>() {
+        public void apply(final List<Habitacion> it) {
+          ObservableItems<Selector<Habitacion>, Habitacion, ListBuilder<Habitacion>> _items = it.items();
+          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "model.accionesDeLaHabitacionSeleccionada");
+          PropertyAdapter _propertyAdapter = new PropertyAdapter(Accion.class, "nombre");
+          _spaceship.setAdapter(_propertyAdapter);
+          it.setHeight(180);
+          it.setWidth(185);
+          ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
+          ArenaXtendExtensions.operator_spaceship(_value, "accionSeleccionada");
+        }
+      };
+      ObjectExtensions.<List<Habitacion>>operator_doubleArrow(_list, _function);
+      final Panel panelDeBotonesAdministradorDeAcciones = new Panel(this);
+      _xblockexpression = this.crearPanelDeBotonesHorizontalParaAdministradorDeAcciones(panelDeBotonesAdministradorDeAcciones);
+    }
+    return _xblockexpression;
+  }
+  
+  public Button crearPanelDeBotonesHorizontalParaAdministradorDeAcciones(final Panel owner) {
+    Button _xblockexpression = null;
+    {
+      final Panel panelDeBotonesAdministradorHabitaciones = new Panel(owner);
+      HorizontalLayout _horizontalLayout = new HorizontalLayout();
+      panelDeBotonesAdministradorHabitaciones.setLayout(_horizontalLayout);
+      Button _button = new Button(panelDeBotonesAdministradorHabitaciones);
+      final Procedure1<Button> _function = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Agregar Acción");
+        }
+      };
+      ObjectExtensions.<Button>operator_doubleArrow(_button, _function);
+      Button _button_1 = new Button(panelDeBotonesAdministradorHabitaciones);
+      final Procedure1<Button> _function_1 = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Quitar Acción");
+        }
+      };
+      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);
+    }
+    return _xblockexpression;
   }
 }

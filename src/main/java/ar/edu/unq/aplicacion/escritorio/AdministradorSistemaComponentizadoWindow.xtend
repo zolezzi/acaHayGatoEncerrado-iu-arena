@@ -11,6 +11,7 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
+import ar.edu.unq.acahaygatoencerrado.dominio.Accion
 
 class AdministradorSistemaComponentizadoWindow extends SimpleWindow<AdministradorSistemaAppModel>{
 	
@@ -38,23 +39,27 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		//agregamos el contenido
 		val Panel contentPanel = new Panel(mainPanel)
 		contentPanel.layout = new HorizontalLayout
+
 		this.crearAdministradorLaberintos(contentPanel)
 		this.crearAdministradorHabitaciones(contentPanel)
-	//	this.crearAdministradorCaracteristicasYAcciones(contentPanel)
-		
+		this.crearAdministradorCaracteristicasYAcciones(contentPanel)
 	}
 	
 	def crearAdministradorLaberintos(Panel owner) {
+		
 		val Panel panelDeListadoDeLaberintos = new Panel(owner)
-			new Titulo(panelDeListadoDeLaberintos, "Tus Laberintos")
+		
+		new Titulo(panelDeListadoDeLaberintos, "Tus Laberintos")
+		
 		new List<Laberinto>(panelDeListadoDeLaberintos) => [
 				(items <=> "model.laberintos").adapter = new PropertyAdapter(Laberinto, "nombre")
 				height = 270
-				width = 210
+				width = 185
 				value <=> "laberintoSeleccionado"
 			]
+		
 		val Panel panelDeBotonesAdministradorLaberintos = new Panel(this)
-		this.crearPanelDeBotonesHorizontal(panelDeBotonesAdministradorLaberintos)	
+		crearPanelDeBotonesHorizontalParaAdministradorLaberintos(panelDeBotonesAdministradorLaberintos)	
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Habilitar Laberinto"
@@ -62,7 +67,8 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		]
 	}
 	
-	def crearPanelDeBotonesHorizontal(Panel owner) {
+	def crearPanelDeBotonesHorizontalParaAdministradorLaberintos(Panel owner) {
+		
 		val Panel panelDeBotonesAdministradorLaberintos = new Panel(owner)
 		panelDeBotonesAdministradorLaberintos.layout = new HorizontalLayout
 		
@@ -78,22 +84,70 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 	}
 	
 	def crearAdministradorHabitaciones(Panel owner) {
+		
 		val Panel panelDeListadoDeHabitaciones = new Panel(owner)
-			new Titulo(panelDeListadoDeHabitaciones, "Habitaciones")
+		
+		new Titulo(panelDeListadoDeHabitaciones, "Habitaciones")
+		
 		new List<Habitacion>(panelDeListadoDeHabitaciones) => [
-				(items <=> "administrador.laberintos").adapter = new PropertyAdapter(Laberinto, "nombre")
+				(items <=> "model.habitacionesDelLaberintoSeleccionado").adapter = new PropertyAdapter(Habitacion, "nombre")
 				height = 270
-				width = 210
-				value <=> "laberintoSeleccionado"
+				width = 185
+				value <=> "habitacionSeleccionada"
 			]
-		val Panel panelDeBotonesAdministradorLaberintos = new Panel(this)
-		this.crearPanelDeBotonesHorizontal(panelDeBotonesAdministradorLaberintos)
-	}
-	
-	def crearAdministradorCaracteristicasYAcciones(Panel panel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	
 
+		val Panel panelDeBotonesAdministradorLaberintos = new Panel(this)
+		crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(panelDeBotonesAdministradorLaberintos)
+	}
+	
+	def crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(Panel owner) {
+		
+		val Panel panelDeBotonesAdministradorHabitaciones = new Panel(owner)
+		panelDeBotonesAdministradorHabitaciones.layout = new HorizontalLayout
+		
+		new Button(panelDeBotonesAdministradorHabitaciones) =>[
+			caption = "Agregar Habitación"
+		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		] 
+		
+		new Button(panelDeBotonesAdministradorHabitaciones) =>[
+			caption = "Quitar Habitación"
+		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		] 
+	}
+	
+	def crearAdministradorCaracteristicasYAcciones(Panel owner) {
+		
+		//Agregar CHECK BOXes
+		
+		val Panel panelDeListadoDeAcciones = new Panel(owner)
+		
+		new Titulo(panelDeListadoDeAcciones, "Acciones")
+		
+		new List<Habitacion>(panelDeListadoDeAcciones) => [
+				(items <=> "model.accionesDeLaHabitacionSeleccionada").adapter = new PropertyAdapter(Accion, "nombre")
+				height = 180 
+				width = 185
+				value <=> "accionSeleccionada"
+			]
+
+		val Panel panelDeBotonesAdministradorDeAcciones = new Panel(this)
+		crearPanelDeBotonesHorizontalParaAdministradorDeAcciones(panelDeBotonesAdministradorDeAcciones)
+	}
+	
+	def crearPanelDeBotonesHorizontalParaAdministradorDeAcciones(Panel owner) {
+		
+		val Panel panelDeBotonesAdministradorHabitaciones = new Panel(owner)
+		panelDeBotonesAdministradorHabitaciones.layout = new HorizontalLayout
+		
+		new Button(panelDeBotonesAdministradorHabitaciones) =>[
+			caption = "Agregar Acción"
+		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		] 
+		
+		new Button(panelDeBotonesAdministradorHabitaciones) =>[
+			caption = "Quitar Acción"
+		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		] 
+	}
 }
