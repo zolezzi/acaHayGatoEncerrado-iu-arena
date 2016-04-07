@@ -61,7 +61,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 				value <=> "laberintoSeleccionado"
 			]
 		
-		val Panel panelDeBotonesAdministradorLaberintos = new Panel(this)
+		val Panel panelDeBotonesAdministradorLaberintos = new Panel(panelDeListadoDeLaberintos)
 		crearPanelDeBotonesHorizontalParaAdministradorLaberintos(panelDeBotonesAdministradorLaberintos)	
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
@@ -99,7 +99,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 				value <=> "habitacionSeleccionada"
 			]
 
-		val Panel panelDeBotonesAdministradorLaberintos = new Panel(this)
+		val Panel panelDeBotonesAdministradorLaberintos = new Panel(panelDeListadoDeHabitaciones)
 		crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(panelDeBotonesAdministradorLaberintos)
 	}
 	
@@ -134,7 +134,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 				value <=> "accionSeleccionada"
 			]
 
-		val Panel panelDeBotonesAdministradorDeAcciones = new Panel(this)
+		val Panel panelDeBotonesAdministradorDeAcciones = new Panel(panelDeListadoDeAcciones)
 		crearPanelDeBotonesHorizontalParaAdministradorDeAcciones(panelDeBotonesAdministradorDeAcciones)
 	}
 	

@@ -65,7 +65,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
         }
       };
       ObjectExtensions.<List<Laberinto>>operator_doubleArrow(_list, _function);
-      final Panel panelDeBotonesAdministradorLaberintos = new Panel(this);
+      final Panel panelDeBotonesAdministradorLaberintos = new Panel(panelDeListadoDeLaberintos);
       this.crearPanelDeBotonesHorizontalParaAdministradorLaberintos(panelDeBotonesAdministradorLaberintos);
       Button _button = new Button(panelDeBotonesAdministradorLaberintos);
       final Procedure1<Button> _function_1 = new Procedure1<Button>() {
@@ -121,7 +121,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
         }
       };
       ObjectExtensions.<List<Habitacion>>operator_doubleArrow(_list, _function);
-      final Panel panelDeBotonesAdministradorLaberintos = new Panel(this);
+      final Panel panelDeBotonesAdministradorLaberintos = new Panel(panelDeListadoDeHabitaciones);
       _xblockexpression = this.crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(panelDeBotonesAdministradorLaberintos);
     }
     return _xblockexpression;
@@ -170,7 +170,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
         }
       };
       ObjectExtensions.<List<Habitacion>>operator_doubleArrow(_list, _function);
-      final Panel panelDeBotonesAdministradorDeAcciones = new Panel(this);
+      final Panel panelDeBotonesAdministradorDeAcciones = new Panel(panelDeListadoDeAcciones);
       _xblockexpression = this.crearPanelDeBotonesHorizontalParaAdministradorDeAcciones(panelDeBotonesAdministradorDeAcciones);
     }
     return _xblockexpression;
