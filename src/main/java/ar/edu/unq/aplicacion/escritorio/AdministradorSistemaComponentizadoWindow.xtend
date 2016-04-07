@@ -12,14 +12,17 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
 import ar.edu.unq.acahaygatoencerrado.dominio.Accion
+import org.uqbar.arena.windows.WindowOwner
 
 class AdministradorSistemaComponentizadoWindow extends SimpleWindow<AdministradorSistemaAppModel>{
 	
-	AdministradorSistemaAppModel model
+	//new(AdministradorSistemaApplication application, AdministradorSistemaAppModel model) {
+		//super(application, model)
+		
+	//}
 	
-	new(AdministradorSistemaApplication application, AdministradorSistemaAppModel model) {
-		super(application, model)
-		this.model = model
+	new(WindowOwner owner, AdministradorSistemaAppModel model) {
+		super(owner, model)
 	}
 	
 	override protected addActions(Panel actionsPanel) {
@@ -52,7 +55,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		new Titulo(panelDeListadoDeLaberintos, "Tus Laberintos")
 		
 		new List<Laberinto>(panelDeListadoDeLaberintos) => [
-				(items <=> "model.laberintos").adapter = new PropertyAdapter(Laberinto, "nombre")
+				(items <=> "laberintos").adapter = new PropertyAdapter(Laberinto, "nombre")
 				height = 270
 				width = 185
 				value <=> "laberintoSeleccionado"
@@ -90,7 +93,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		new Titulo(panelDeListadoDeHabitaciones, "Habitaciones")
 		
 		new List<Habitacion>(panelDeListadoDeHabitaciones) => [
-				(items <=> "model.habitacionesDelLaberintoSeleccionado").adapter = new PropertyAdapter(Habitacion, "nombre")
+				(items <=> "laberintoSeleccionado.habitaciones").adapter = new PropertyAdapter(Habitacion, "nombre")
 				height = 270
 				width = 185
 				value <=> "habitacionSeleccionada"
@@ -125,7 +128,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		new Titulo(panelDeListadoDeAcciones, "Acciones")
 		
 		new List<Habitacion>(panelDeListadoDeAcciones) => [
-				(items <=> "model.accionesDeLaHabitacionSeleccionada").adapter = new PropertyAdapter(Accion, "nombre")
+				(items <=> "habitacionSeleccionada.acciones").adapter = new PropertyAdapter(Accion, "nombre")
 				height = 180 
 				width = 185
 				value <=> "accionSeleccionada"

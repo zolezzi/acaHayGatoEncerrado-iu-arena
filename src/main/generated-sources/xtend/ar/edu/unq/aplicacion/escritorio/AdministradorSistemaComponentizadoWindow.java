@@ -5,7 +5,6 @@ import ar.edu.unq.acahaygatoencerrado.dominio.Accion;
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion;
 import ar.edu.unq.acahaygatoencerrado.dominio.Laberinto;
 import ar.edu.unq.aplicacion.componentes.Titulo;
-import ar.edu.unq.aplicacion.escritorio.AdministradorSistemaApplication;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.bindings.ObservableItems;
@@ -18,6 +17,7 @@ import org.uqbar.arena.widgets.List;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.SimpleWindow;
+import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.arena.xtend.ArenaXtendExtensions;
 import org.uqbar.lacar.ui.model.ControlBuilder;
 import org.uqbar.lacar.ui.model.ListBuilder;
@@ -25,11 +25,8 @@ import org.uqbar.lacar.ui.model.bindings.Binding;
 
 @SuppressWarnings("all")
 public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<AdministradorSistemaAppModel> {
-  private AdministradorSistemaAppModel model;
-  
-  public AdministradorSistemaComponentizadoWindow(final AdministradorSistemaApplication application, final AdministradorSistemaAppModel model) {
-    super(application, model);
-    this.model = model;
+  public AdministradorSistemaComponentizadoWindow(final WindowOwner owner, final AdministradorSistemaAppModel model) {
+    super(owner, model);
   }
   
   protected void addActions(final Panel actionsPanel) {
@@ -58,7 +55,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
       final Procedure1<List<Laberinto>> _function = new Procedure1<List<Laberinto>>() {
         public void apply(final List<Laberinto> it) {
           ObservableItems<Selector<Laberinto>, Laberinto, ListBuilder<Laberinto>> _items = it.items();
-          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "model.laberintos");
+          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "laberintos");
           PropertyAdapter _propertyAdapter = new PropertyAdapter(Laberinto.class, "nombre");
           _spaceship.setAdapter(_propertyAdapter);
           it.setHeight(270);
@@ -114,7 +111,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
       final Procedure1<List<Habitacion>> _function = new Procedure1<List<Habitacion>>() {
         public void apply(final List<Habitacion> it) {
           ObservableItems<Selector<Habitacion>, Habitacion, ListBuilder<Habitacion>> _items = it.items();
-          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "model.habitacionesDelLaberintoSeleccionado");
+          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "laberintoSeleccionado.habitaciones");
           PropertyAdapter _propertyAdapter = new PropertyAdapter(Habitacion.class, "nombre");
           _spaceship.setAdapter(_propertyAdapter);
           it.setHeight(270);
@@ -163,7 +160,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
       final Procedure1<List<Habitacion>> _function = new Procedure1<List<Habitacion>>() {
         public void apply(final List<Habitacion> it) {
           ObservableItems<Selector<Habitacion>, Habitacion, ListBuilder<Habitacion>> _items = it.items();
-          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "model.accionesDeLaHabitacionSeleccionada");
+          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "habitacionSeleccionada.acciones");
           PropertyAdapter _propertyAdapter = new PropertyAdapter(Accion.class, "nombre");
           _spaceship.setAdapter(_propertyAdapter);
           it.setHeight(180);
