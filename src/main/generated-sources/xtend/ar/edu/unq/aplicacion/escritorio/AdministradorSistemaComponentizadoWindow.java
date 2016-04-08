@@ -2,9 +2,11 @@ package ar.edu.unq.aplicacion.escritorio;
 
 import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel;
 import ar.edu.unq.acahaygatoencerrado.dominio.Accion;
+import ar.edu.unq.acahaygatoencerrado.dominio.AdministradorSistema;
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion;
 import ar.edu.unq.acahaygatoencerrado.dominio.Laberinto;
 import ar.edu.unq.aplicacion.componentes.Titulo;
+import ar.edu.unq.aplicacion.escritorio.NuevoLaberintoWindow;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.bindings.ObservableItems;
@@ -19,6 +21,7 @@ import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.arena.xtend.ArenaXtendExtensions;
+import org.uqbar.lacar.ui.model.Action;
 import org.uqbar.lacar.ui.model.ControlBuilder;
 import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
@@ -79,8 +82,36 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
   }
   
   public Button crearPanelDeBotonesHorizontalParaAdministradorLaberintos(final Panel owner) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nno viable alternative at input \')\'");
+    Button _xblockexpression = null;
+    {
+      final Panel panelDeBotonesAdministradorLaberintos = new Panel(owner);
+      HorizontalLayout _horizontalLayout = new HorizontalLayout();
+      panelDeBotonesAdministradorLaberintos.setLayout(_horizontalLayout);
+      Button _button = new Button(panelDeBotonesAdministradorLaberintos);
+      final Procedure1<Button> _function = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Crear Laberinto");
+          final Action _function = new Action() {
+            public void execute() {
+              AdministradorSistemaAppModel _modelObject = AdministradorSistemaComponentizadoWindow.this.getModelObject();
+              AdministradorSistema _administrador = _modelObject.getAdministrador();
+              NuevoLaberintoWindow _nuevoLaberintoWindow = new NuevoLaberintoWindow(AdministradorSistemaComponentizadoWindow.this, _administrador);
+              _nuevoLaberintoWindow.open();
+            }
+          };
+          it.onClick(_function);
+        }
+      };
+      ObjectExtensions.<Button>operator_doubleArrow(_button, _function);
+      Button _button_1 = new Button(panelDeBotonesAdministradorLaberintos);
+      final Procedure1<Button> _function_1 = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Eliminar Laberinto");
+        }
+      };
+      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);
+    }
+    return _xblockexpression;
   }
   
   public Button crearAdministradorHabitaciones(final Panel owner) {
