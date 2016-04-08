@@ -77,7 +77,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Crear Laberinto"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+			onClick [ | new NuevoLaberintoWindow(this, this.modelObject.).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[

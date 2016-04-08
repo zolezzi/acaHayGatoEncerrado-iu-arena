@@ -79,27 +79,8 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
   }
   
   public Button crearPanelDeBotonesHorizontalParaAdministradorLaberintos(final Panel owner) {
-    Button _xblockexpression = null;
-    {
-      final Panel panelDeBotonesAdministradorLaberintos = new Panel(owner);
-      HorizontalLayout _horizontalLayout = new HorizontalLayout();
-      panelDeBotonesAdministradorLaberintos.setLayout(_horizontalLayout);
-      Button _button = new Button(panelDeBotonesAdministradorLaberintos);
-      final Procedure1<Button> _function = new Procedure1<Button>() {
-        public void apply(final Button it) {
-          it.setCaption("Crear Laberinto");
-        }
-      };
-      ObjectExtensions.<Button>operator_doubleArrow(_button, _function);
-      Button _button_1 = new Button(panelDeBotonesAdministradorLaberintos);
-      final Procedure1<Button> _function_1 = new Procedure1<Button>() {
-        public void apply(final Button it) {
-          it.setCaption("Eliminar Laberinto");
-        }
-      };
-      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nno viable alternative at input \')\'");
   }
   
   public Button crearAdministradorHabitaciones(final Panel owner) {
