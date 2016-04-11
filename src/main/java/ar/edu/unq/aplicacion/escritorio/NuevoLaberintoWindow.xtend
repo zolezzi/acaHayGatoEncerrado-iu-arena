@@ -18,8 +18,8 @@ class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel>{
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		title = "Nuevo Laberinto"
 		
+		title = "Nuevo Laberinto"
 		new Label(mainPanel).text = "Agregue un nombre al laberinto"
 		new TextBox(mainPanel) => [
 			value <=> "nombreLaberinto"
