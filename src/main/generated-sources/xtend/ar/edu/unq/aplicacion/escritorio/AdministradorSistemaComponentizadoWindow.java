@@ -107,6 +107,13 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
       final Procedure1<Button> _function_1 = new Procedure1<Button>() {
         public void apply(final Button it) {
           it.setCaption("Eliminar Laberinto");
+          final Action _function = new Action() {
+            public void execute() {
+              AdministradorSistemaAppModel _modelObject = AdministradorSistemaComponentizadoWindow.this.getModelObject();
+              _modelObject.quitarLaberinto();
+            }
+          };
+          it.onClick(_function);
         }
       };
       _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);

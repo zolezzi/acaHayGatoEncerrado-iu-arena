@@ -77,7 +77,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Eliminar Laberinto"
-		//	onClick [ | new EliminarLaberintoWindow(this, this.modelObject.administrador).open ]
+			onClick [ | this.modelObject.quitarLaberinto ]
 		] 
 	}
 	
