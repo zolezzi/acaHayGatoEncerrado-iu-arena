@@ -58,7 +58,7 @@ public class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Admin
       final Procedure1<List<Laberinto>> _function = new Procedure1<List<Laberinto>>() {
         public void apply(final List<Laberinto> it) {
           ObservableItems<Selector<Laberinto>, Laberinto, ListBuilder<Laberinto>> _items = it.items();
-          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "laberintos");
+          Binding _spaceship = ArenaXtendExtensions.operator_spaceship(_items, "administrador.laberintos");
           PropertyAdapter _propertyAdapter = new PropertyAdapter(Laberinto.class, "nombre");
           _spaceship.setAdapter(_propertyAdapter);
           it.setHeight(270);

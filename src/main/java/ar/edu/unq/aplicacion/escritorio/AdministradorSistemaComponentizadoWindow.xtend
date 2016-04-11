@@ -50,7 +50,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		new Titulo(panelDeListadoDeLaberintos, "Tus Laberintos")
 		
 		new List<Laberinto>(panelDeListadoDeLaberintos) => [
-				(items <=> "laberintos").adapter = new PropertyAdapter(Laberinto, "nombre")
+				(items <=> "administrador.laberintos").adapter = new PropertyAdapter(Laberinto, "nombre")
 				height = 270
 				width = 185
 				value <=> "laberintoSeleccionado"
