@@ -15,12 +15,7 @@ import ar.edu.unq.acahaygatoencerrado.dominio.Accion
 import org.uqbar.arena.windows.WindowOwner
 
 class AdministradorSistemaComponentizadoWindow extends SimpleWindow<AdministradorSistemaAppModel>{
-	
-	//new(AdministradorSistemaApplication application, AdministradorSistemaAppModel model) {
-		//super(application, model)
-		
-	//}
-	
+
 	new(WindowOwner owner, AdministradorSistemaAppModel model) {
 		super(owner, model)
 	}
@@ -66,7 +61,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Habilitar Laberinto"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		//	onClick [ | new HabilitarLaberintoWindow(this, this.modelObject.administrador).open ]
 		]
 	}
 	
@@ -82,7 +77,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Eliminar Laberinto"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		//	onClick [ | new EliminarLaberintoWindow(this, this.modelObject.administrador).open ]
 		] 
 	}
 	
@@ -110,12 +105,12 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Agregar Habitación"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		//	onClick [ | new NuevaHabitacionWindow(this, this.modelObject.administrador).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Quitar Habitación"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		//	onClick [ | new EliminarHabitacionWindow(this, this.modelObject.administrador).open ]
 		] 
 	}
 	
@@ -145,12 +140,12 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Agregar Acción"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		//	onClick [ | new NuevaAccionWindow(this, this.modelObject.administrador).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Quitar Acción"
-		//	onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
+		//	onClick [ | new EliminarAccionWindow(this, this.modelObject.administrador).open ]
 		] 
 	}
 }
