@@ -126,7 +126,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 				(items <=> "habitacionSeleccionada.acciones").adapter = new PropertyAdapter(Accion, "nombre")
 				height = 180 
 				width = 185
-				value <=> "accionSeleccionada"
+				value <=> "accionSeleccionada" 
 			]
 
 		val Panel panelDeBotonesAdministradorDeAcciones = new Panel(panelDeListadoDeAcciones)

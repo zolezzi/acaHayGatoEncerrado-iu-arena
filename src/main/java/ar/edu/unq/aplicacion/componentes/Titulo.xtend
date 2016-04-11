@@ -12,7 +12,7 @@ class Titulo extends Label {
 	
 	new(Panel container, String text) {
 		super(container)
-		this.text = text
+		this.text = text 
 		this.fontSize = 14
 	}
 	

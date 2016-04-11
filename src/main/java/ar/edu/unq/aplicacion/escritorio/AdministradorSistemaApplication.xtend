@@ -14,7 +14,7 @@ class AdministradorSistemaApplication extends Application {
 			new AdministradorSistemaComponentizadoWindow(this, model) 
 	}
 	
-	def static void main(String[] args){
+	def static void main(String[] args){ 
 		new AdministradorSistemaApplication().start()
 	}
 }

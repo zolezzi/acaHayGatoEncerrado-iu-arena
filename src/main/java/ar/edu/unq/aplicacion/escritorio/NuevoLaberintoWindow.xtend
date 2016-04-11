@@ -22,7 +22,7 @@ class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel>{
 		title = "Nuevo Laberinto"
 		new Label(mainPanel).text = "Agregue un nombre al laberinto"
 		new TextBox(mainPanel) => [
-			value <=> "nombreLaberinto"
+			value <=> "nombreLaberinto" 
 			width = 200
 		]
 		
