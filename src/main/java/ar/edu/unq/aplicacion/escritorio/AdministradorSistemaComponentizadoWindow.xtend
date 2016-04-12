@@ -140,7 +140,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Agregar Acción"
-		//	onClick [ | new NuevaAccionWindow(this, this.modelObject.administrador).open ]
+			onClick [ | new NuevaAccionWindow(this, this.modelObject).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
