@@ -105,7 +105,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Agregar Habitación"
-		//	onClick [ | new NuevaHabitacionWindow(this, this.modelObject.administrador).open ]
+			onClick [ | new NuevaHabitacionWindow(this, this.modelObject).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
