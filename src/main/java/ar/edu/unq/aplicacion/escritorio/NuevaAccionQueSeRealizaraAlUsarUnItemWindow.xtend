@@ -31,12 +31,12 @@ class NuevaAccionQueSeRealizaraAlUsarUnItemWindow extends Dialog<CrearAccionDeUs
 		
 		new Button(nuevaAccionPanel)=>[
 			caption = "Agregar accion de ir a otra habitacion"
-			onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject).open]
+			onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject.appModel).open]
 		]
 			
 		new Button(nuevaAccionPanel)=>[
 			caption = "Agregar accion de agarrar un elemento"
-			onClick [ | new NuevaAccionDeAgarrarUnItemWindow(this, this.modelObject).open]
+			onClick [ | new NuevaAccionDeAgarrarUnItemWindow(this, this.modelObject.appModel).open]
 		]
 	}
 }
