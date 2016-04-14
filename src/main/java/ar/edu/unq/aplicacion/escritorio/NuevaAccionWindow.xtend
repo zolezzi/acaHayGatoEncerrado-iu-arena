@@ -11,8 +11,11 @@ import org.uqbar.arena.windows.WindowOwner
 
 class NuevaAccionWindow extends Dialog<CrearAccionAppModel> {
 	
+	AdministradorSistemaAppModel administrador
+	
 	new(WindowOwner owner, AdministradorSistemaAppModel model) {
 		super(owner, new CrearAccionAppModel(model))
+		administrador = model
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
@@ -30,7 +33,7 @@ class NuevaAccionWindow extends Dialog<CrearAccionAppModel> {
 		
 		new Button(nuevaAccionPanel)=>[
 			caption = "Agregar accion de ir a otra habitacion"
-			onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject).open]
+			onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject, administrador).open]
 		]
 			
 		new Button(nuevaAccionPanel)=>[

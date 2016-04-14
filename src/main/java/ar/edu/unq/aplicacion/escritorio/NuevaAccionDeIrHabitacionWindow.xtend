@@ -13,8 +13,11 @@ import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionAppModel
 
 class NuevaAccionDeIrHabitacionWindow extends Dialog<CrearAccionDeIrHabitacionAppModel>{
 	
-	new(NuevaAccionWindow owner, CrearAccionAppModel model) {
-		super(owner, new CrearAccionDeIrHabitacionAppModel(model))
+	AdministradorSistemaAppModel administradorAppModel
+	
+	new(NuevaAccionWindow owner, CrearAccionAppModel model, AdministradorSistemaAppModel administrador) {
+		 super(owner, new CrearAccionDeIrHabitacionAppModel(model))
+		 this.administradorAppModel = administrador
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
@@ -22,23 +25,36 @@ class NuevaAccionDeIrHabitacionWindow extends Dialog<CrearAccionDeIrHabitacionAp
 		
 		new Label(mainPanel).text = "Selecciona la habitacion"
 		
+		val Panel nuevaAccionDeIrAOtraHabitacion = new Panel(mainPanel)
+		
+		
+		new LabeledSelector(nuevaAccionDeIrAOtraHabitacion)=>[
+			
+			bindItemsToProperty("habitacionesLaberintoSeleccionado")
+			bindValueToProperty("habitacionALaCualIr")
+		]
+		
 		val Panel panelDeBotonDeIrAOtraHabitacion = new Panel(this)
 		crearPanelDeBotonDeIrAOtraHabitacion(panelDeBotonDeIrAOtraHabitacion)
 	}
 	
-	def crearPanelDeBotonDeIrAOtraHabitacion(Panel owner) {
-		val Panel nuevaAccionDeIrAOtraHabitacion = new Panel(owner)
+	def crearPanelDeBotonDeIrAOtraHabitacion(Panel nuevaAccionDeIrAOtraHabitacion) {
+
 		nuevaAccionDeIrAOtraHabitacion.layout = new HorizontalLayout
-		
-		new LabeledSelector(nuevaAccionDeIrAOtraHabitacion)=>[
-			text = "Habitaciones:"
-			bindItemsToProperty("laberintoSeleccionado.habitaciones")
-			bindValueToProperty("habitacionSeleccionada")
+	
+		new Button(nuevaAccionDeIrAOtraHabitacion)=>[
+			caption = "Agregar"
+			onClick [ | 
+				this.modelObject.agregarHabitacion
+				this.close
+			]
 		]
 		
 		new Button(nuevaAccionDeIrAOtraHabitacion)=>[
-			caption = "Agregar"
-			//onClick [ | ]
+			caption = "Cancelar"
+			onClick [ | 
+				this.close
+			]
 		]
 	}
 }
