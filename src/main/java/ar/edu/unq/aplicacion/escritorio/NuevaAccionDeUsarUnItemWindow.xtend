@@ -7,11 +7,6 @@ import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Selector
-import ar.edu.unq.acahaygatoencerrado.dominio.Item
-import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.bindings.ObservableProperty
-import org.uqbar.arena.bindings.PropertyAdapter
 import ar.edu.unq.aplicacion.componentes.LabeledSelector
 
 class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppModel> {
@@ -30,12 +25,7 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 			bindItemsToProperty("itemsAgarrables")
 			bindValueToProperty("itemRequeridoParaUsar")
 		]
-/*		new Selector<Item>(mainPanel) => [
- 		    allowNull(false)
-     		value <=> "itemRequeridoParaUsar"
-     		bindItems(new ObservableProperty(mainPanel.modelObject, "itemsAgarrables")).adapter = new PropertyAdapter(typeof(Item), "nombre")
-		]
-*/		
+	
 		new Label(mainPanel).text = "Cree la Acción que se realizará"
 		new Label(mainPanel).text = "al usar el item seleccionado"
 		
