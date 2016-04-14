@@ -37,7 +37,10 @@ class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItem
 		
 		new Button(nuevaAccionDeAgarrarUnItemPanel)=>[
 			caption = "Agregar"
-			//onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject).open]
+			onClick [ | 
+				this.modelObject.agregarItem
+				this.close
+			]
 		]
 			
 		new Button(nuevaAccionDeAgarrarUnItemPanel)=>[
