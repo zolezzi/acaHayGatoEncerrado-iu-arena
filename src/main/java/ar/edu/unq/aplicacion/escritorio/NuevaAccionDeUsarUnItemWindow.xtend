@@ -8,10 +8,11 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import ar.edu.unq.aplicacion.componentes.LabeledSelector
+import org.uqbar.arena.windows.WindowOwner
 
 class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppModel> {
 	
-	new(NuevaAccionWindow owner, CrearAccionAppModel model) {
+	new(WindowOwner owner, CrearAccionAppModel model) {
 		super(owner, new CrearAccionDeUsarUnItemAppModel(model))
 	}
 	

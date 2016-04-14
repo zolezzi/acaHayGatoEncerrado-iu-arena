@@ -8,12 +8,12 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.TextBox
-
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import org.uqbar.arena.windows.WindowOwner
 
 class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItemAppModel> {
 	
-	new(NuevaAccionWindow owner, CrearAccionAppModel model) {
+	new(WindowOwner owner, CrearAccionAppModel model) {
 		super(owner, new CrearAccionDeAgarrarUnItemAppModel(model))
 	}
 	

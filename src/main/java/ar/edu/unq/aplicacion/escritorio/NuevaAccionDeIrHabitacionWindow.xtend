@@ -8,10 +8,11 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.aplicacion.componentes.LabeledSelector
 import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionAppModel
+import org.uqbar.arena.windows.WindowOwner
 
 class NuevaAccionDeIrHabitacionWindow extends Dialog<CrearAccionDeIrHabitacionAppModel>{
 	
-	new(NuevaAccionWindow owner, CrearAccionAppModel model) {
+	new(WindowOwner owner, CrearAccionAppModel model) {
 		 super(owner, new CrearAccionDeIrHabitacionAppModel(model))
 	}
 	
