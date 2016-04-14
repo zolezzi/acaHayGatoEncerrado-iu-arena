@@ -1,6 +1,5 @@
 package ar.edu.unq.aplicacion.escritorio
 
-
 import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionDeIrHabitacionAppModel
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
@@ -8,16 +7,12 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.aplicacion.componentes.LabeledSelector
-import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
 import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionAppModel
 
 class NuevaAccionDeIrHabitacionWindow extends Dialog<CrearAccionDeIrHabitacionAppModel>{
 	
-	AdministradorSistemaAppModel administradorAppModel
-	
-	new(NuevaAccionWindow owner, CrearAccionAppModel model, AdministradorSistemaAppModel administrador) {
+	new(NuevaAccionWindow owner, CrearAccionAppModel model) {
 		 super(owner, new CrearAccionDeIrHabitacionAppModel(model))
-		 this.administradorAppModel = administrador
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
