@@ -4,6 +4,7 @@ import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionAppModel
 import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionDeAgarrarUnItemAppModel
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.widgets.Label
 
 class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItemAppModel> {
 	
@@ -11,8 +12,12 @@ class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItem
 		super(owner, new CrearAccionDeAgarrarUnItemAppModel(model))
 	}
 	
-	override protected createFormPanel(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	override protected createFormPanel(Panel mainPanel) {
+		title = "Agregar accion de agarrar un elemento"
+		
+		new Label(mainPanel).text = "Escriba el elemento que aparecera en la habitacion"
+		
+		
 	}
 	
 }
