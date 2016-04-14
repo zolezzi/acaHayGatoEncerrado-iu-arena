@@ -7,6 +7,9 @@ import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.TextBox
+
+import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
 class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItemAppModel> {
 	
@@ -19,7 +22,10 @@ class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItem
 		
 		new Label(mainPanel).text = "Escriba el elemento que aparecera en la habitacion"
 		
-		// falta algo aca
+		new TextBox(mainPanel) => [
+			value <=> "nombreItem" 
+			width = 200
+		]
 		
 		crearPanelDeBotonesNuevaAccionDeAgarrarUnItem(new Panel(this))
 	}
