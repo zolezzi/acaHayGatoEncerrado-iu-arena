@@ -145,7 +145,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Quitar Acción"
-		//	onClick [ | new EliminarAccionWindow(this, this.modelObject.administrador).open ]
+			onClick [ | this.modelObject.quitarAccion ]
 		] 
 	}
 }
