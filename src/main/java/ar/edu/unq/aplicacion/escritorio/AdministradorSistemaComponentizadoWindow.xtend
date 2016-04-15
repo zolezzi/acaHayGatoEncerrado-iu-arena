@@ -1,19 +1,19 @@
 package ar.edu.unq.aplicacion.escritorio
 
-import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.widgets.Panel
-import ar.edu.unq.aplicacion.componentes.Titulo
-import org.uqbar.arena.layout.HorizontalLayout
-import ar.edu.unq.acahaygatoencerrado.dominio.Laberinto
-import org.uqbar.arena.bindings.PropertyAdapter
-import org.uqbar.arena.widgets.List
-import org.uqbar.arena.widgets.Button
-import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
 import ar.edu.unq.acahaygatoencerrado.dominio.Accion
-import org.uqbar.arena.windows.WindowOwner
+import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
+import ar.edu.unq.acahaygatoencerrado.dominio.Laberinto
 import ar.edu.unq.aplicacion.componentes.LabeledCheckBox
+import ar.edu.unq.aplicacion.componentes.Titulo
+import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.List
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
+import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
 class AdministradorSistemaComponentizadoWindow extends SimpleWindow<AdministradorSistemaAppModel>{
 
@@ -24,7 +24,6 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 	override protected addActions(Panel actionsPanel) {
 		//no queremos usar este template default
 	}
-	
 	override protected createFormPanel(Panel mainPanel) {
 		//no queremos usar este template default
 	}
@@ -35,7 +34,6 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Titulo(mainPanel, "Aca hay gato encerrado", 20)
 		
-		//agregamos el contenido
 		val Panel contentPanel = new Panel(mainPanel)
 		contentPanel.layout = new HorizontalLayout
 
@@ -118,7 +116,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 	def crearAdministradorCaracteristicasYAcciones(Panel owner) {
 		
 		val Panel panelDeListadoDeAcciones = new Panel(owner)
-		
+
 		new LabeledCheckBox(panelDeListadoDeAcciones)
 			.setText("Es inicial?:")
 			.bindValueToProperty("habitacionSeleccionada.esInicial")
@@ -129,7 +127,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Titulo(panelDeListadoDeAcciones, "Acciones")
 		
-		new List<Habitacion>(panelDeListadoDeAcciones) => [
+		new List<Accion>(panelDeListadoDeAcciones) => [
 				(items <=> "habitacionSeleccionada.acciones").adapter = new PropertyAdapter(Accion, "nombre")
 				height = 180 
 				width = 185
