@@ -13,6 +13,7 @@ import org.uqbar.arena.widgets.Button
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
 import ar.edu.unq.acahaygatoencerrado.dominio.Accion
 import org.uqbar.arena.windows.WindowOwner
+import ar.edu.unq.aplicacion.componentes.LabeledCheckBox
 
 class AdministradorSistemaComponentizadoWindow extends SimpleWindow<AdministradorSistemaAppModel>{
 
@@ -116,9 +117,15 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 	
 	def crearAdministradorCaracteristicasYAcciones(Panel owner) {
 		
-		//Agregar CHECK BOXes
-		
 		val Panel panelDeListadoDeAcciones = new Panel(owner)
+		
+		new LabeledCheckBox(panelDeListadoDeAcciones)
+			.setText("Es inicial?:")
+			.bindValueToProperty("habitacionSeleccionada.esInicial")
+			
+		new LabeledCheckBox(panelDeListadoDeAcciones)
+			.setText("Es final?:")
+			.bindValueToProperty("habitacionSeleccionada.esFinal")
 		
 		new Titulo(panelDeListadoDeAcciones, "Acciones")
 		
