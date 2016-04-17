@@ -97,12 +97,11 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 	def crearPanelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion(Panel owner) {
 		val Panel panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion = new Panel(owner)
 		
-		new LabeledSelector(panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion)=>[
-			
-			bindItemsToProperty("habitacionesALasCualesIr")
-			bindValueToProperty("habitacionALaCualIr")
+		new TextBox(panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion) => [
+			value <=> "itemAObtener.nombre" 
+			width = 180
 		]
-		
+
 		new Button(panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion)=>[
 			caption = "Crear Acción para usar un Item y Obtener Otro"
 			onClick [ |
@@ -115,9 +114,10 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 	def crearPanelParaCrearAccionDeUsarUnItemParaObtenerOtroItem(Panel owner) {
 		val Panel panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem = new Panel(owner)
 		
-		new TextBox(panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem) => [
-			value <=> "itemAObtener.nombre" 
-			width = 180
+		new LabeledSelector(panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem)=>[
+			
+			bindItemsToProperty("habitacionesALasCualesIr")
+			bindValueToProperty("habitacionALaCualIr")
 		]
 
 		new Button(panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem)=>[

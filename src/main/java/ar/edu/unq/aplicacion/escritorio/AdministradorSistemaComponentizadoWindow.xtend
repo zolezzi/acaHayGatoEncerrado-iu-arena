@@ -4,13 +4,14 @@ import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
 import ar.edu.unq.acahaygatoencerrado.dominio.Accion
 import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
 import ar.edu.unq.acahaygatoencerrado.dominio.Laberinto
-import ar.edu.unq.aplicacion.componentes.LabeledCheckBox
 import ar.edu.unq.aplicacion.componentes.Titulo
+import org.uqbar.arena.bindings.ObservableProperty
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.RadioSelector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
@@ -117,6 +118,11 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		val Panel panelDeListadoDeAcciones = new Panel(owner)
 
+		new RadioSelector(panelDeListadoDeAcciones) => [
+			bindItems(new ObservableProperty(this.modelObject, "caracteristicasPosibles"))
+            bindValueToProperty("habitacionSeleccionada.caracteristica")
+		]
+/*
 		new LabeledCheckBox(panelDeListadoDeAcciones)
 			.setText("Es inicial?:")
 			.bindValueToProperty("habitacionSeleccionada.esInicial")
@@ -124,7 +130,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		new LabeledCheckBox(panelDeListadoDeAcciones)
 			.setText("Es final?:")
 			.bindValueToProperty("habitacionSeleccionada.esFinal")
-		
+*/	
 		new Titulo(panelDeListadoDeAcciones, "Acciones")
 		
 		new List<Accion>(panelDeListadoDeAcciones) => [
