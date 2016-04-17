@@ -11,7 +11,9 @@ import ar.edu.unq.aplicacion.componentes.LabeledSelector
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppModel> {
 	
 	new(WindowOwner owner, CrearAccionAppModel model) {
