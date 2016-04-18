@@ -50,20 +50,19 @@ class NuevaAccionWindow extends Dialog<CrearAccionAppModel> {
 	
 	def crearPanelDeBotonesNuevaAccion(Panel owner) {
 		val Panel nuevaAccionPanel = new Panel(owner)
-		nuevaAccionPanel.layout = new HorizontalLayout
 		
 		new Button(nuevaAccionPanel)=>[
-			caption = "Agregar accion de ir a otra habitacion"
+			caption = "Agregar accion de IR A OTRA HABITACIÓN"
 			onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject).open]
 		]
 			
 		new Button(nuevaAccionPanel)=>[
-			caption = "Agregar accion de agarrar un elemento"
+			caption = "Agregar accion de AGARRAR UN OBJETO"
 			onClick [ | new NuevaAccionDeAgarrarUnItemWindow(this, this.modelObject).open]
 		]
 			
 		new Button(nuevaAccionPanel)=>[
-			caption = "Agregar accion de usar un elemento"
+			caption = "Agregar accion de USAR UN OBJETO"
 			onClick [ | new NuevaAccionDeUsarUnItemWindow(this, this.modelObject).open]
 		]
 	}

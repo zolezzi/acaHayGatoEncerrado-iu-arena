@@ -23,7 +23,10 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 	override protected createFormPanel(Panel mainPanel) {
 		
 		title = "Crear Acción para Usar un Item"
-		new Label(mainPanel).text = "Seleccione el Item para Usar"
+		new Label(mainPanel) => [
+			text = "Seleccione el Item para Usar"
+			width = 200
+			]
 
 		new LabeledSelector(mainPanel) => [
 			
@@ -43,13 +46,15 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 		val Panel panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem = new Panel(panelInferiorDeNuevaAccionDeUsarUnItem)
 		crearPanelParaCrearAccionDeUsarUnItemParaObtenerOtroItem(panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem)
 		
-		val Panel panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion= new Panel(panelInferiorDeNuevaAccionDeUsarUnItem)
-		crearPanelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion(panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion)
-		
 		new Button(panelInferiorDeNuevaAccionDeUsarUnItem)=>[
+			width = 250
 			caption = "Cancelar"
+			fontSize = 12
 			onClick [ | this.close ]
 		]
+
+		val Panel panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion= new Panel(panelInferiorDeNuevaAccionDeUsarUnItem)
+		crearPanelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion(panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion)
 	}
 	
 	def crearPanelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion(Panel owner) {
@@ -61,7 +66,8 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 		]
 
 		new Button(panelParaCrearAccionDeUsarUnItemParaIrAUnaHabitacion)=>[
-			caption = "Crear Acción para usar un Item y Obtener Otro"
+			caption = "Crear Acción para USAR UN ITEM y OBTENER OTRO"
+			fontSize = 12
 			onClick [ |
 				this.modelObject.agregarAccionDeObtenerOtroItem
 				this.close
@@ -79,7 +85,8 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 		]
 
 		new Button(panelParaCrearAccionDeUsarUnItemParaObtenerOtroItem)=>[
-			caption = "Crear Acción para usar un Item e Ir a una Habitación"
+			caption = "Crear Acción para USAR UN ITEM e IR A OTRA HABITACIÓN"
+			fontSize = 12
 			onClick [ |
 				this.modelObject.agregarAccionDeIrAOtraHabitacion
 				this.close
