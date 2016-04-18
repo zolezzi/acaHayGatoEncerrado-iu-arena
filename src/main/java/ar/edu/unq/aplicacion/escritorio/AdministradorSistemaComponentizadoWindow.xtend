@@ -61,7 +61,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Habilitar Laberinto"
-		//	onClick [ | new HabilitarLaberintoWindow(this, this.modelObject.administrador).open ]
+			onClick [ | modelObject.administrador.habilitar(modelObject.laberintoSeleccionado) ]
 		]
 	}
 	
@@ -122,15 +122,7 @@ class AdministradorSistemaComponentizadoWindow extends SimpleWindow<Administrado
 			bindItems(new ObservableProperty(this.modelObject, "caracteristicasPosibles"))
             bindValueToProperty("habitacionSeleccionada.caracteristica")
 		]
-/*
-		new LabeledCheckBox(panelDeListadoDeAcciones)
-			.setText("Es inicial?:")
-			.bindValueToProperty("habitacionSeleccionada.esInicial")
-			
-		new LabeledCheckBox(panelDeListadoDeAcciones)
-			.setText("Es final?:")
-			.bindValueToProperty("habitacionSeleccionada.esFinal")
-*/	
+
 		new Titulo(panelDeListadoDeAcciones, "Acciones")
 		
 		new List<Accion>(panelDeListadoDeAcciones) => [

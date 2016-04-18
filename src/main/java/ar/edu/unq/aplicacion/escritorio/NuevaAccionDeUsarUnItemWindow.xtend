@@ -33,50 +33,6 @@ class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppMod
 
 		val Panel panelInferiorDeNuevaAccionDeUsarUnItem = new Panel(this)
 		crearPanelInferiorDeNuevaAccionDeUsarUnItem(panelInferiorDeNuevaAccionDeUsarUnItem)
-		
-/*		new Label(mainPanel).text = "Cree la Acción que se realizará"
-		new Label(mainPanel).text = "al usar el item seleccionado"
-*/
-/*		new LabeledSelector(mainPanel)=>[
-			
-			bindItemsToProperty("laberinto.habitaciones")
-			bindValueToProperty("habitacionALaCualIr")
-		]
-*/	/*	
-		new TextBox(mainPanel) => [
-			value <=> "itemNuevo.nombre" 
-			width = 200
-		]
-*/	/*		
-		new Button(mainPanel)=>[
-			caption = "Agregar Acción"
-			onClick [|new NuevaAccionQueSeRealizaraAlUsarUnItemWindow(this, this.modelObject).open]
-		]
-		
-		new Label(mainPanel).text = this.modelObject.accionARealizarAlUsarElItem.nombre
-*/		
-/*		val Panel panelDeBotonesNuevaAccionDeUsarUnItem = new Panel(this)
-		crearPanelDeBotonesNuevaAccionDeUsarUnItem(panelDeBotonesNuevaAccionDeUsarUnItem)
-
-	}
-	
-	def crearPanelDeBotonesNuevaAccionDeUsarUnItem(Panel owner) {
-		val Panel panelDeBotonesNuevaAccionDeUsarUnItem = new Panel(owner)
-		
-		panelDeBotonesNuevaAccionDeUsarUnItem.layout = new HorizontalLayout
-		
-		new Button(panelDeBotonesNuevaAccionDeUsarUnItem)=>[
-			caption = "Aceptar"
-			onClick [ |
-				this.modelObject.agregarAccion
-				this.close
-			]
-		]
-		
-		new Button(panelDeBotonesNuevaAccionDeUsarUnItem)=>[
-			caption = "Cancelar"
-			onClick [ | this.close ]
-		]*/		
 	}
 	
 	def crearPanelInferiorDeNuevaAccionDeUsarUnItem(Panel owner) {
