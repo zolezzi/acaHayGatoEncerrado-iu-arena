@@ -16,12 +16,36 @@ class NuevaAccionWindow extends Dialog<CrearAccionAppModel> {
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		title = "Agregar accion"
+		if(modelObject.habitacionSeleccionada != null){
+			title = "Agregar accion"
 		
-		new Label(mainPanel).text = "Selecciona una accion a agregar"
+			new Label(mainPanel).text = "Selecciona una accion a agregar"
 		
-		val Panel panelDeBotonesNuevaAccion = new Panel(this)
-		crearPanelDeBotonesNuevaAccion(panelDeBotonesNuevaAccion)
+			val Panel panelDeBotonesNuevaAccion = new Panel(this)
+			crearPanelDeBotonesNuevaAccion(panelDeBotonesNuevaAccion)
+		}else{
+				this.crearVentanaException(mainPanel){	
+			 }
+		}	
+	}
+	
+	def crearVentanaException(Panel owner){
+		new Label(owner) => [
+			text = "Tiene que seleccionar una habitacion para agregar una accion"
+			fontSize = 10
+			width = 300
+			height = 50	
+		]
+		val Panel panelDeBotonesException = new Panel(owner)
+		panelDeBotonesException.layout = new HorizontalLayout
+		
+		new Button(panelDeBotonesException)=>[
+			fontSize = 10
+			caption = "Aceptar"
+			width = 300
+			onClick [ | this.close ]
+		]		
+		
 	}
 	
 	def crearPanelDeBotonesNuevaAccion(Panel owner) {

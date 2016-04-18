@@ -38,10 +38,12 @@ class AdministradorHabitacionesPanel {
 			caption = "Agregar Habitación"
 			onClick [ | new NuevaHabitacionWindow(window, appModel).open ]
 		] 
-		
+				
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Quitar Habitación"
-			onClick [ | appModel.quitarHabitacion ]
+			if(appModel.habitacionSeleccionada != null){
+				onClick [ | appModel.quitarHabitacion ]
+			}
 		] 
 	}
 	
