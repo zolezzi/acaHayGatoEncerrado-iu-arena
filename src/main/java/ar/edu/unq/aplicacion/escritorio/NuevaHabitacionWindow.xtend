@@ -31,11 +31,9 @@ class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel>{
 			crearPanelDeBotonesNuevaHabitacion(panelDeBotonesNuevaHabitacion)
 		
 		}else{
-			this.crearVentanaException(mainPanel){
-				
+			this.crearVentanaException(mainPanel){	
 			}
-		}
-		
+		}	
 	}
 	
 	def crearVentanaException(Panel owner){
