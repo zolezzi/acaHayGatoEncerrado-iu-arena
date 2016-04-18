@@ -40,9 +40,9 @@ class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItem
 			onClick [ | 
 				this.modelObject.agregarItem
 				this.close
-			]
+			]	
 		]
-			
+				
 		new Button(nuevaAccionDeAgarrarUnItemPanel)=>[
 			caption = "Cancelar"
 			onClick [ |
@@ -50,4 +50,6 @@ class NuevaAccionDeAgarrarUnItemWindow extends Dialog<CrearAccionDeAgarrarUnItem
 			]
 		]
 	}
+
+	
 }

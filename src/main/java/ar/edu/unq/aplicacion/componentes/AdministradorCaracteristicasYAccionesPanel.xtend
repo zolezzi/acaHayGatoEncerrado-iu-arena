@@ -49,9 +49,8 @@ class AdministradorCaracteristicasYAccionesPanel {
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Quitar Acción"
-			if(appModel.habitacionSeleccionada != null){
 				onClick [ | appModel.quitarAccion ]
-			}
-		] 
+			
+			] 
 	}
 }
