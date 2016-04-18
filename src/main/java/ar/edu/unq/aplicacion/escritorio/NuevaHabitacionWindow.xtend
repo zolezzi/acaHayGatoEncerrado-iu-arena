@@ -19,17 +19,41 @@ class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel>{
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
+		if(modelObject.laberintoSeleccionado != null){
+			title = "Nueva Habitacion"
+			new Label(mainPanel).text = "Agregue un nombre a la habitación"
+			new TextBox(mainPanel) => [
+				value <=> "nombreHabitacion" 
+				width = 200
+			]
 		
-		title = "Nueva Habitacion"
-		new Label(mainPanel).text = "Agregue un nombre a la habitación"
-		new TextBox(mainPanel) => [
-			value <=> "nombreHabitacion" 
-			width = 200
+			val Panel panelDeBotonesNuevaHabitacion = new Panel(this)
+			crearPanelDeBotonesNuevaHabitacion(panelDeBotonesNuevaHabitacion)
+		
+		}else{
+			this.crearVentanaException(mainPanel){
+				
+			}
+		}
+		
+	}
+	
+	def crearVentanaException(Panel owner){
+		new Label(owner) => [
+			text = "Tiene que seleccionar un laberinto para agregar una habitación"
+			fontSize = 10
+			width = 300
+			height = 50	
 		]
+		val Panel panelDeBotonesException = new Panel(owner)
+		panelDeBotonesException.layout = new HorizontalLayout
 		
-		val Panel panelDeBotonesNuevaHabitacion = new Panel(this)
-		crearPanelDeBotonesNuevaHabitacion(panelDeBotonesNuevaHabitacion)
-		
+		new Button(panelDeBotonesException)=>[
+			fontSize = 10
+			caption = "Aceptar"
+			width = 300
+			onClick [ | this.close ]
+		]		
 		
 	}
 	
