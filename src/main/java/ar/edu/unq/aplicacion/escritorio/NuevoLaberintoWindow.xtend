@@ -1,20 +1,20 @@
 package ar.edu.unq.aplicacion.escritorio
 
-import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearLaberintoAppModel
-import ar.edu.unq.acahaygatoencerrado.dominio.AdministradorSistema
+import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Label
-import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Button
 
-class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel>{
+import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+
+class NuevoLaberintoWindow extends Dialog<AdministradorSistemaAppModel>{
 	
-	new(WindowOwner owner, AdministradorSistema model) {
-		super(owner, new CrearLaberintoAppModel(model))
+	new(WindowOwner owner, AdministradorSistemaAppModel model) {
+		super(owner, model)
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {

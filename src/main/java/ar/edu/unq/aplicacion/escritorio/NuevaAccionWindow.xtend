@@ -1,7 +1,6 @@
 package ar.edu.unq.aplicacion.escritorio
 
 import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
-import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionAppModel
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
@@ -9,10 +8,10 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 
-class NuevaAccionWindow extends Dialog<CrearAccionAppModel> {
+class NuevaAccionWindow extends Dialog<AdministradorSistemaAppModel> {
 	
 	new(WindowOwner owner, AdministradorSistemaAppModel model) {
-		super(owner, new CrearAccionAppModel(model))
+		super(owner, model)
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {

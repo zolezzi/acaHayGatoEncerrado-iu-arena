@@ -37,7 +37,7 @@ class AdministradorLaberintosPanel{
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Crear Laberinto"
-			onClick [ | new NuevoLaberintoWindow(window, appModel.administrador).open ]
+			onClick [ | new NuevoLaberintoWindow(window, appModel).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[

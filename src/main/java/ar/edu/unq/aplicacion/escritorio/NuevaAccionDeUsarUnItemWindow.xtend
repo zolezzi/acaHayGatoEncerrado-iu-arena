@@ -1,7 +1,5 @@
 package ar.edu.unq.aplicacion.escritorio
 
-import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionAppModel
-import ar.edu.unq.acahaygatoencerrado.aplicacion.CrearAccionDeUsarUnItemAppModel
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.widgets.Label
@@ -12,12 +10,13 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.eclipse.xtend.lib.annotations.Accessors
+import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
 
 @Accessors
-class NuevaAccionDeUsarUnItemWindow extends Dialog<CrearAccionDeUsarUnItemAppModel> {
+class NuevaAccionDeUsarUnItemWindow extends Dialog<AdministradorSistemaAppModel> {
 	
-	new(WindowOwner owner, CrearAccionAppModel model) {
-		super(owner, new CrearAccionDeUsarUnItemAppModel(model))
+	new(WindowOwner owner, AdministradorSistemaAppModel model) {
+		super(owner, model)
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
