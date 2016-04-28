@@ -21,11 +21,10 @@ class NuevaAccionDeIrHabitacionWindow extends Dialog<AdministradorSistemaAppMode
 		new Label(mainPanel).text = "Selecciona la habitacion"
 		
 		val Panel nuevaAccionDeIrAOtraHabitacion = new Panel(mainPanel)
-		
-		
+
 		new LabeledSelector(nuevaAccionDeIrAOtraHabitacion)=>[
 			
-			bindItemsToProperty("habitacionesLaberintoSeleccionado")
+			bindItemsToProperty("habitacionesALaCualIr")
 			bindValueToProperty("habitacionALaCualIr")
 		]
 		
@@ -40,7 +39,7 @@ class NuevaAccionDeIrHabitacionWindow extends Dialog<AdministradorSistemaAppMode
 		new Button(nuevaAccionDeIrAOtraHabitacion)=>[
 			caption = "Agregar"
 			onClick [ | 
-				this.modelObject.agregarHabitacion
+				this.modelObject.agregarAccionDeIrAHabitacionALaHabitacionSeleccionada
 				this.close
 			]
 		]
