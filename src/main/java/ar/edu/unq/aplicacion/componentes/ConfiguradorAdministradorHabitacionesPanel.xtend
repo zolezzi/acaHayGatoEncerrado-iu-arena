@@ -1,6 +1,5 @@
 package ar.edu.unq.aplicacion.componentes
 
-import ar.edu.unq.aplicacion.escritorio.AdministradorSistemaComponentizadoWindow
 import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.List
@@ -10,10 +9,12 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.aplicacion.escritorio.NuevaHabitacionWindow
+import ar.edu.unq.aplicacion.escritorio.AdministradorSistemaWindow
+import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorHabitacionesAppModel
 
-class AdministradorHabitacionesPanel {
+class ConfiguradorAdministradorHabitacionesPanel {
 	
-	new(AdministradorSistemaComponentizadoWindow window, AdministradorSistemaAppModel appModel, Panel owner) {
+	new(AdministradorSistemaWindow window, AdministradorSistemaAppModel appModel, Panel owner) {
 		val Panel panelDeListadoDeHabitaciones = new Panel(owner)
 		
 		new Titulo(panelDeListadoDeHabitaciones, "Habitaciones")
@@ -29,21 +30,19 @@ class AdministradorHabitacionesPanel {
 		crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(window, appModel, panelDeBotonesAdministradorLaberintos)
 	}
 	
-	def crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(AdministradorSistemaComponentizadoWindow window, AdministradorSistemaAppModel appModel, Panel owner) {
+	def crearPanelDeBotonesHorizontalParaAdministradorHabitaciones(AdministradorSistemaWindow window, AdministradorSistemaAppModel appModel, Panel owner) {
 		
 		val Panel panelDeBotonesAdministradorHabitaciones = new Panel(owner)
 		panelDeBotonesAdministradorHabitaciones.layout = new HorizontalLayout
 		
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Agregar Habitación"
-			onClick [ | new NuevaHabitacionWindow(window, appModel).open ]
-		] 
-				
+			onClick [ | new NuevaHabitacionWindow(window, new AdministradorHabitacionesAppModel(appModel)).open ]
+		]
+
 		new Button(panelDeBotonesAdministradorHabitaciones) =>[
 			caption = "Quitar Habitación"
 				onClick [ | appModel.quitarHabitacion ]
-			] 
+		] 
 	}
-	
-	
 }

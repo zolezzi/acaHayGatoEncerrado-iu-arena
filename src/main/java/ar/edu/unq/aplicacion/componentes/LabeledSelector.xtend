@@ -3,7 +3,7 @@ package ar.edu.unq.aplicacion.componentes
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.widgets.Container
 import org.uqbar.arena.bindings.PropertyAdapter
-import ar.edu.unq.acahaygatoencerrado.dominio.Habitacion
+import ar.edu.unq.acahaygatoencerrado.dominio.Seleccionable
 
 class LabeledSelector<T> extends AbstractLabeledWidget {
 
@@ -14,7 +14,7 @@ class LabeledSelector<T> extends AbstractLabeledWidget {
 	}
 	
 	def bindItemsToProperty(String property){
-		selector.bindItemsToProperty(property).adapter = new PropertyAdapter(Habitacion,"nombre")
+		selector.bindItemsToProperty(property).adapter = new PropertyAdapter(Seleccionable,"nombre")
 		this
 	}
 	

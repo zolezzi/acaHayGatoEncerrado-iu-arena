@@ -8,11 +8,11 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.windows.WindowOwner
-import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
+import ar.edu.unq.acahaygatoencerrado.aplicacion.NuevaAccionDeAgarrarUnItemAppModel
 
-class NuevaAccionDeAgarrarUnItemWindow extends Dialog<AdministradorSistemaAppModel> {
+class NuevaAccionDeAgarrarUnItemWindow extends Dialog<NuevaAccionDeAgarrarUnItemAppModel> {
 	
-	new(WindowOwner owner, AdministradorSistemaAppModel model) {
+	new(WindowOwner owner, NuevaAccionDeAgarrarUnItemAppModel model) {
 		super(owner, model)
 	}
 	

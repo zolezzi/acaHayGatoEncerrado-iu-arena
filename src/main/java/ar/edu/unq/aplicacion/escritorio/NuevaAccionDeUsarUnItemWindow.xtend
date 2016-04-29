@@ -10,12 +10,12 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.eclipse.xtend.lib.annotations.Accessors
-import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
+import ar.edu.unq.acahaygatoencerrado.aplicacion.NuevaAccionDeUsarUnItemAppModel
 
 @Accessors
-class NuevaAccionDeUsarUnItemWindow extends Dialog<AdministradorSistemaAppModel> {
+class NuevaAccionDeUsarUnItemWindow extends Dialog<NuevaAccionDeUsarUnItemAppModel> {
 	
-	new(WindowOwner owner, AdministradorSistemaAppModel model) {
+	new(WindowOwner owner, NuevaAccionDeUsarUnItemAppModel model) {
 		super(owner, model)
 	}
 	

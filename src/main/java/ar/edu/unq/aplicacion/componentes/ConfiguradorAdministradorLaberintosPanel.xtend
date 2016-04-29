@@ -9,12 +9,13 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.aplicacion.escritorio.NuevoLaberintoWindow
 import org.uqbar.arena.layout.HorizontalLayout
+import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorLaberintosAppModel
 import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
 
-class AdministradorLaberintosPanel{
+class ConfiguradorAdministradorLaberintosPanel{
 	
 	new(WindowOwner window, AdministradorSistemaAppModel appModel, Panel owner) {
-	
+
 		val Panel panelDeListadoDeLaberintos = new Panel(owner)
 		
 		new Titulo(panelDeListadoDeLaberintos, "Tus Laberintos")
@@ -37,7 +38,7 @@ class AdministradorLaberintosPanel{
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[
 			caption = "Crear Laberinto"
-			onClick [ | new NuevoLaberintoWindow(window, appModel).open ]
+			onClick [ | new NuevoLaberintoWindow(window,new AdministradorLaberintosAppModel(appModel)).open ]
 		] 
 		
 		new Button(panelDeBotonesAdministradorLaberintos) =>[

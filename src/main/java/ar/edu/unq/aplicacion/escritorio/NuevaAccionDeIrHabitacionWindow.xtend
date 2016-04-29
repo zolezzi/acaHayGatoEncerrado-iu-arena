@@ -7,11 +7,11 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.aplicacion.componentes.LabeledSelector
 import org.uqbar.arena.windows.WindowOwner
-import ar.edu.unq.acahaygatoencerrado.aplicacion.AdministradorSistemaAppModel
+import ar.edu.unq.acahaygatoencerrado.aplicacion.NuevaAccionDeIrHabitacionAppModel
 
-class NuevaAccionDeIrHabitacionWindow extends Dialog<AdministradorSistemaAppModel>{
+class NuevaAccionDeIrHabitacionWindow extends Dialog<NuevaAccionDeIrHabitacionAppModel>{
 	
-	new(WindowOwner owner, AdministradorSistemaAppModel model) {
+	new(WindowOwner owner, NuevaAccionDeIrHabitacionAppModel model) {
 		 super(owner, model)
 	}
 	
@@ -20,9 +20,9 @@ class NuevaAccionDeIrHabitacionWindow extends Dialog<AdministradorSistemaAppMode
 		
 		new Label(mainPanel).text = "Selecciona la habitacion"
 		
-		val Panel nuevaAccionDeIrAOtraHabitacion = new Panel(mainPanel)
+		val Panel panelNuevaAccionDeIrAOtraHabitacion = new Panel(mainPanel)
 
-		new LabeledSelector(nuevaAccionDeIrAOtraHabitacion)=>[
+		new LabeledSelector(panelNuevaAccionDeIrAOtraHabitacion)=>[
 			
 			bindItemsToProperty("habitacionesALaCualIr")
 			bindValueToProperty("habitacionALaCualIr")
@@ -32,11 +32,11 @@ class NuevaAccionDeIrHabitacionWindow extends Dialog<AdministradorSistemaAppMode
 		crearPanelDeBotonDeIrAOtraHabitacion(panelDeBotonDeIrAOtraHabitacion)
 	}
 	
-	def crearPanelDeBotonDeIrAOtraHabitacion(Panel nuevaAccionDeIrAOtraHabitacion) {
+	def crearPanelDeBotonDeIrAOtraHabitacion(Panel panel) {
 
-		nuevaAccionDeIrAOtraHabitacion.layout = new HorizontalLayout
+		panel.layout = new HorizontalLayout
 	
-		new Button(nuevaAccionDeIrAOtraHabitacion)=>[
+		new Button(panel)=>[
 			caption = "Agregar"
 			onClick [ | 
 				this.modelObject.agregarAccionDeIrAHabitacionALaHabitacionSeleccionada
@@ -44,7 +44,7 @@ class NuevaAccionDeIrHabitacionWindow extends Dialog<AdministradorSistemaAppMode
 			]
 		]
 		
-		new Button(nuevaAccionDeIrAOtraHabitacion)=>[
+		new Button(panel)=>[
 			caption = "Cancelar"
 			onClick [ | 
 				this.close

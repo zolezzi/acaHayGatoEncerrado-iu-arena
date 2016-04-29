@@ -7,6 +7,9 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import ar.edu.unq.acahaygatoencerrado.aplicacion.NuevaAccionDeIrHabitacionAppModel
+import ar.edu.unq.acahaygatoencerrado.aplicacion.NuevaAccionDeAgarrarUnItemAppModel
+import ar.edu.unq.acahaygatoencerrado.aplicacion.NuevaAccionDeUsarUnItemAppModel
 
 class NuevaAccionWindow extends Dialog<AdministradorSistemaAppModel> {
 	
@@ -18,8 +21,10 @@ class NuevaAccionWindow extends Dialog<AdministradorSistemaAppModel> {
 		if(modelObject.habitacionSeleccionada != null){
 			title = "Agregar accion"
 		
-			new Label(mainPanel).text = "Selecciona una accion a agregar"
-		
+			new Label(mainPanel) => [
+				text = "Selecciona una accion a agregar"
+			]
+
 			val Panel panelDeBotonesNuevaAccion = new Panel(this)
 			crearPanelDeBotonesNuevaAccion(panelDeBotonesNuevaAccion)
 		}else{
@@ -52,17 +57,23 @@ class NuevaAccionWindow extends Dialog<AdministradorSistemaAppModel> {
 		
 		new Button(nuevaAccionPanel)=>[
 			caption = "Agregar accion de IR A OTRA HABITACIÓN"
-			onClick [ | new NuevaAccionDeIrHabitacionWindow(this, this.modelObject).open]
+			onClick [ | new NuevaAccionDeIrHabitacionWindow(this,
+				new NuevaAccionDeIrHabitacionAppModel (this.modelObject)
+			).open]
 		]
 			
 		new Button(nuevaAccionPanel)=>[
 			caption = "Agregar accion de AGARRAR UN OBJETO"
-			onClick [ | new NuevaAccionDeAgarrarUnItemWindow(this, this.modelObject).open]
+			onClick [ | new NuevaAccionDeAgarrarUnItemWindow(this,
+				new NuevaAccionDeAgarrarUnItemAppModel (this.modelObject)
+			).open]
 		]
-			
+
 		new Button(nuevaAccionPanel)=>[
 			caption = "Agregar accion de USAR UN OBJETO"
-			onClick [ | new NuevaAccionDeUsarUnItemWindow(this, this.modelObject).open]
+			onClick [ | new NuevaAccionDeUsarUnItemWindow(this,
+				new NuevaAccionDeUsarUnItemAppModel (this.modelObject)
+			).open]
 		]
 	}
 }

@@ -11,7 +11,7 @@ class AdministradorSistemaApplication extends Application {
 			val model = new AdministradorSistemaAppModel =>[
 				administrador = new AdministradorSistema 			 
 			]
-			new AdministradorSistemaComponentizadoWindow(this, model) 
+			new AdministradorSistemaWindow(this, model) 
 	}
 	
 	def static void main(String[] args){ 
